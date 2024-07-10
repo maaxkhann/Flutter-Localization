@@ -1,5 +1,5 @@
 {
     "localization" : "Flutter Localization",
-  //  "hy" : "Hy",
-  //  "whats_up" : "How are you?"
+    "hy" : "Hy {userName}",
+    "description" : "This is simple Flutter Localization"
 }

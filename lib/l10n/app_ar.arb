@@ -1,5 +1,5 @@
 {
-    "Flutter Localization" : "توطين الرفرفة",
-  //  "hy" : "Hola",
-  //  "whats_up" : "¿Cómo estás?"
+    "localization" : "توطين الرفرفة",
+    "hy"  : "هاي {userName}",
+    "description" : "هذا هو توطين الرفرفة البسيط"
 }

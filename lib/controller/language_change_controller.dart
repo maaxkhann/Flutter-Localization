@@ -13,9 +13,12 @@ class LanguageChangeController with ChangeNotifier {
     if (type == const Locale('en')) {
       _appLocale = type;
       await sp.setString('language_code', 'en');
-    } else {
+    } else if (type == const Locale('ar')) {
       _appLocale = type;
       await sp.setString('language_code', 'ar');
+    } else {
+      _appLocale = type;
+      await sp.setString('language_code', 'es');
     }
     notifyListeners();
   }

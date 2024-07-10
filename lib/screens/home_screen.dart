@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-enum Language { english, spanish }
+enum Language { english, arabic, spanish }
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,9 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         backgroundColor: Colors.blueGrey,
-        title: Text(AppLocalizations.of(context)!.hello,
+        title: Text(AppLocalizations.of(context)?.localization ?? '',
             style: const TextStyle(color: Colors.white)),
         actions: [
           Consumer<LanguageChangeController>(
@@ -29,15 +28,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 onSelected: (Language item) {
                   if (Language.english.name == item.name) {
                     provider.changeLanguage(const Locale('en'));
+                  } else if (Language.arabic.name == item.name) {
+                    provider.changeLanguage(const Locale('ar'));
                   } else {
                     provider.changeLanguage(const Locale('es'));
                   }
                 },
                 itemBuilder: (context) => [
                       const PopupMenuItem(
-                          value: Language.english, child: Text('English')),
+                          value: Language.english,
+                          child: Center(child: Text('English'))),
                       const PopupMenuItem(
-                          value: Language.spanish, child: Text('Spanish'))
+                          value: Language.arabic,
+                          child: Center(child: Text('Arabic'))),
+                      const PopupMenuItem(
+                          value: Language.spanish,
+                          child: Center(child: Text('Spanish')))
                     ]);
           })
         ],
@@ -46,10 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.hy,
+            Text(AppLocalizations.of(context)?.hy('Maaz') ?? '',
                 style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-            Text(AppLocalizations.of(context)!.whats_up,
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context)?.description ?? '',
                 style: const TextStyle(fontSize: 18))
           ],
         ),
