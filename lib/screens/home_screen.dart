@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: Text(AppLocalizations.of(context)?.localization ?? '',
+        title: Text(AppLocalizations.of(context)!.localization,
             style: const TextStyle(color: Colors.white)),
         actions: [
           Consumer<LanguageChangeController>(
@@ -52,10 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)?.hy('Maaz') ?? '',
+            Text(AppLocalizations.of(context)!.hy('Maaz'),
                 style:
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-            Text(AppLocalizations.of(context)?.description ?? '',
+            Text(AppLocalizations.of(context)!.description,
                 style: const TextStyle(fontSize: 18))
           ],
         ),

@@ -1,5 +1,5 @@
 {
     "localization" : "Localización de aleteo",
-    "hy" : "hola",
+    "hy" : "hola {userName}",
     "description" : "Esta es una localización simple de Flutter"
 }
